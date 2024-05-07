@@ -1,0 +1,32 @@
+﻿@{
+    bool isLoggedIn = Session["use"] != null; // Kiểm tra xem người dùng đã đăng nhập và có mã người dùng
+}
+
+<a href="@Url.Action("GioHang","GioHang")" class="giohang" onclick="checkCartEmpty()">
+    <div style="position: relative; display: inline-block;">
+        <i class="fa fa-shopping-cart" style="font-size: 2em; margin-top: 5px; color: gray;"></i>
+        @if (isLoggedIn && ViewBag.TongSoLuong != null)
+        {
+            <span style="position: absolute;
+                         margin-top:2px;
+                         right: 2;
+                         top: -10px;
+                         background-color: red;
+                         color: white;
+                         padding: 0 5px;
+                         border-radius: 50%;
+                         font-size: 12px;">
+                @ViewBag.TongSoLuong
+            </span>
+        }
+    </div>
+</a>
+
+<script>
+    function checkCartEmpty() {
+        var cart = "@Session["GioHang"]";
+        if (cart == "" || cart == null) {
+            alert("Giỏ hàng đang trống, vui lòng thêm sản phẩm");
+        }
+    }
+</script>

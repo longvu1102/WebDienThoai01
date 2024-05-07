@@ -1,0 +1,148 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12" style="font-size: 20px; font-family: Roboto, sans-serif; width: 100%; height: 100%; padding: 20px;">
+
+            @Html.Action("SlidePartial", "Home")
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12" style="font-size: 20px; font-family: Roboto, sans-serif;">
+            <h3 class="mb-4">DANH MỤC</h3>
+        </div>
+        <div class="col-lg-12">
+            @Html.Action("DanhmucPartial", "Danhmuc")
+        </div>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+       
+        <div class="col-lg-12">
+            @Html.Action("Sanphammoi", "Sanpham")
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+
+
+
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Note: The order of section has been changed here -->
+        <div class="col-lg-12" style="font-size: 20px; font-family: Roboto, sans-serif;">
+            <h3 class="mb-4">ĐIỆN THOẠI</h3>
+        </div>
+    </div>
+    <div class="row">
+
+     
+
+        <div class="col-lg-12">
+            @Html.Action("dtiphonePartial", "Sanpham")
+        </div>
+
+        <div class="col-lg-12">
+            @Html.Action("dtsamsungpartial", "Sanpham")
+        </div>
+
+        <div class="col-lg-12">
+            @Html.Action("dtxiaomipartial", "Sanpham")
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3 class="mb-4">Video </h3>
+            <!-- Thay đổi URL sau đây bằng URL nhúng của video về điện thoại bạn muốn hiển thị -->
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/OQcEQpiQJE4?start=4" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="col-lg-6">
+            <h3 class="mb-4">Bài viết</h3>
+
+            <!-- Bài viết thứ nhất -->
+            <div class="article flex-container">
+
+                <img class="article-img" src="~/HinhanhSP/spnb1.png" alt="Demo 1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi...</p>
+                <a class="btn-baiviet" href="link-to-full-article-1.html">
+                    Xem thêm <span class="arrow-down">▼</span>
+                </a>
+            </div>
+
+            <!-- Bài viết thứ hai -->
+            <div class="article flex-container">
+
+                <img class="article-img" src="~/HinhanhSP/spnb1.png" alt="Demo 2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi...</p>
+                <a class="btn-baiviet" href="link-to-full-article-2.html">
+                    Xem thêm <span class="arrow-down">▼</span>
+                </a>
+            </div>
+
+            <div class="article flex-container">
+
+                <img class="article-img" src="~/HinhanhSP/spnb1.png" alt="Demo 2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi...</p>
+                <a class="btn-baiviet" href="link-to-full-article-2.html">
+                    Xem thêm <span class="arrow-down">▼</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style scoped>
+        .flex-container {
+            display: flex;
+            align-items: flex-start; /* để nội dung bên trong align ở đầu */
+            margin: 20px;
+        }
+
+        .title {
+            flex: 2; /* chiếm 2/3 không gian */
+        }
+
+        .article-img {
+            flex: 1; /* chiếm 1/3 không gian */
+            max-width: 20%; /* đảm bảo nằm trong container */
+            height: auto; /* giữ nguyên tỷ lệ khung hình */
+        }
+
+        .btn-baiviet {
+            color: black;
+            background-color: transparent;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease; /* Tạo hiệu ứng mượt khi thay đổi màu nền và màu viền */
+        }
+
+            .btn-baiviet:hover {
+                color: black;
+                background-color: #lightblue; /* Màu xanh nhạt khi di chuột qua */
+                border-color: #lightblue; /* Màu viền cũng thay đổi theo màu nền */
+            }
+
+        .arrow-down {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    </style>

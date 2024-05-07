@@ -1,0 +1,60 @@
+﻿@model Ictshop.Models.Nguoidung
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container card py-3 mt-5 w-50 mx-auto">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @using (Html.BeginForm("Dangky", "User", FormMethod.Post, new { @class = "form-signin" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h3 class="text-center mb-3">
+            Đăng ký tài để trờ thành thành viên của PhongVuMobile
+        </h3>
+
+        <hr />
+        <h6>Họ tên </h6>
+        @Html.EditorFor(model => model.Hoten, new { htmlAttributes = new { @class = "form-control", placeholder = "Họ tên" } })
+        @Html.ValidationMessageFor(model => model.Hoten, "", new { @class = "text-danger" })
+
+        <h6>Email</h6>
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+        <h6>Số điện thoại </h6>
+        @Html.EditorFor(model => model.Dienthoai, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại" } })
+        @Html.ValidationMessageFor(model => model.Dienthoai, "", new { @class = "text-danger" })
+
+        <h6>Mật khẩu </h6>
+        @Html.EditorFor(model => model.Matkhau, new { htmlAttributes = new { type = "Password", @class = "form-control", placeholder = "Mật khẩu" } })
+        @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
+
+        <h6>Địa chỉ </h6>
+        @Html.EditorFor(model => model.Diachi, new { htmlAttributes = new { @class = "form-control", placeholder = "Địa chỉ" } })
+        @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "text-danger" })
+
+        <br />
+        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Đăng Ký</button>
+
+        <p class="text-center my-3"> - HOẶC - </p>
+        <div class="card-footer text-center">
+            <div>Hoặc đăng nhập bằng</div>
+            <div class="mt-2">
+                <a href="#" class="btn btn-outline-danger">
+                    <i class="fab fa-google"></i> Google
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+            </div>
+        </div>
+
+    }
+
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">

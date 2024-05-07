@@ -1,0 +1,50 @@
+﻿@model Ictshop.Models.Nguoidung
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-3">
+    <h2>HỒ SƠ CÁ NHÂN</h2>
+
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <img src=@Url.Content("~" + @Html.DisplayFor(model => model.Anhdaidien)) class="img-thumbnail img-responsive" alt="" width="200" height="200" />
+        </div>
+        <div class="col-md-8">
+            <table class="table table-borderless">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Hoten)</th>
+                    <td>@Html.DisplayFor(model => model.Hoten)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Dienthoai)</th>
+                    <td>@Html.DisplayFor(model => model.Dienthoai)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Matkhau)</th>
+                    <td>@Html.DisplayFor(model => model.Matkhau)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Diachi)</th>
+                    <td>@Html.DisplayFor(model => model.Diachi)</td>
+                </tr>
+            </table>
+            <a href="@Url.Action("Edit", new { id = Model.MaNguoiDung })" class="btn btn-primary">Chỉnh sửa hồ sơ</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .img-thumbnail {
+        height:200px;
+        width:200px;
+        border-radius: 50%; /* Border radius 50% tạo thành hình tròn */
+        object-fit: cover; /* Đảm bảo ảnh vừa khít với khu vực hiển thị */
+    }
+
+</style>

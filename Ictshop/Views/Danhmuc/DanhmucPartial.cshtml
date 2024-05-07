@@ -1,0 +1,22 @@
+﻿@using Ictshop.Models;
+@model List<Hangsanxuat>
+
+<div class="container">
+    <div class="text-center p-3 mb-4 rounded">
+        <!-- Thêm lớp p-3 (padding) và mb-4 (margin-bottom) để tạo khoảng cách -->
+        <h3 class="text-black">DANH MỤC</h3> <!-- Thêm lớp text-white để làm cho tiêu đề trắng -->
+        <div class="row justify-content-center">
+            <!-- Sử dụng lớp justify-content-center để căn giữa các cột -->
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-2 mb-2">
+                    <!-- Thêm lớp mb-2 (margin-bottom) để tạo khoảng cách giữa các button -->
+                    <button type="button" class="btn btn-danger btn-block">
+                        <!-- Thay thẻ button thành một button của Bootstrap và thêm lớp btn-block để nó chiếm toàn bộ chiều rộng -->
+                        <a href="#" class="text-white">@item.Tenhang</a> <!-- Thêm lớp text-white để làm cho văn bản trắng -->
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

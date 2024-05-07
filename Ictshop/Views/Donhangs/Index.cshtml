@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Ictshop.Models.Donhang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Thêm CSS tùy chỉnh -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        /* Tuỳ chỉnh màu cho các trạng thái đơn hàng */
+        .tinhtrang-donhang {
+            font-weight: bold;
+        }
+
+            .tinhtrang-donhang.choduyet {
+                color: red;
+            }
+
+            .tinhtrang-donhang.daxacnhan {
+                color: green;
+            }
+
+            .tinhtrang-donhang.khongxacnhan {
+                color: orangered;
+            }
+
+        /* Tuỳ chỉnh màu cho phương thức thanh toán */
+        .thanh-toan {
+            font-style: italic;
+        }
+
+            .thanh-toan.tienmat {
+                color: red;
+            }
+
+            .thanh-toan.chuyenkhoan {
+                color: brown;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="mt-4">Danh sách đơn hàng</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Ngày đặt</th>
+                        <th>Tình trạng đơn hàng</th>
+                        <th>Thanh toán</th>
+                        <th>Địa chỉ nhận hàng</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Nguoidung.Hoten)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+                            <td>
+                                <span class="tinhtrang-donhang @(item.Tinhtrang == 0 ? "choduyet" : item.Tinhtrang == 1 ? "daxacnhan" : "khongxacnhan")">
+                                    @(item.Tinhtrang == 0 ? "Đang chờ xác nhận" : item.Tinhtrang == 1 ? "Đã xác nhận" : "Đang chờ xác nhận")
+                                </span>
+                            </td>
+                            <td>
+                                <span class="thanh-toan @(item.Thanhtoan == 1 ? "tienmat" : "chuyenkhoan")">
+                                    @(item.Thanhtoan == 1 ? "Thanh toán tiền mặt" : "Thanh toán chuyển khoản")
+                                </span>
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.Diachinhanhang)</td>
+                            <td>
+                                <button class="btn btn-primary">
+                                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Madon }, new { @style = "color:white;" })
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Thêm script tùy chỉnh nếu cần -->
+</body>
+</html>

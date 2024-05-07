@@ -1,0 +1,23 @@
+﻿/* Style the search box inside the navigation bar */
+
+
+/* Responsive layout - when the screen is less than 600px wide, 
+    make the search bar stack on top instead of floats on the right */
+@media screen and (max-width: 600px) {
+    .search-container {
+        float: none;
+    }
+
+        .search-container a, .search-container input[type=text], .search-container button {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+
+        .search-container input[type=text] {
+            border: 1px solid #ccc;
+        }
+}
